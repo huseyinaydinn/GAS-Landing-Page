@@ -97,26 +97,26 @@ export default function Founders() {
                       {/* Social Icons */}
                       <div className="absolute top-3 left-3 z-10 flex gap-2">
                         {founder.linkedin && (
-                          <Link href={founder.linkedin} target="_blank" rel="noopener noreferrer" className="bg-white/10 text-white hover:text-white p-2 rounded-lg transition cursor-pointer">
+                          <a href={founder.linkedin} target="_blank" rel="noopener noreferrer" className="bg-white/10 text-white hover:bg-white/20 p-2 rounded-lg transition-all duration-300 transform hover:scale-110">
                             <FaLinkedin size={16} />
-                          </Link>
+                          </a>
                         )}
                         {founder.instagram && (
-                          <Link href={founder.instagram} target="_blank" rel="noopener noreferrer" className="bg-white/10 text-white hover:text-white p-2 rounded-lg transition cursor-pointer">
+                          <a href={founder.instagram} target="_blank" rel="noopener noreferrer" className="bg-white/10 text-white hover:bg-white/20 p-2 rounded-lg transition-all duration-300 transform hover:scale-110">
                             <FaInstagram size={16} />
-                          </Link>
+                          </a>
                         )}
                         {founder.github && (
-                          <Link href={founder.github} target="_blank" rel="noopener noreferrer" className="bg-white/10 text-white hover:text-white p-2 rounded-lg transition cursor-pointer">
+                          <a href={founder.github} target="_blank" rel="noopener noreferrer" className="bg-white/10 text-white hover:bg-white/20 p-2 rounded-lg transition-all duration-300 transform hover:scale-110">
                             <FaGithub size={16} />
-                          </Link>
+                          </a>
                         )}
                       </div>
-                      {/* Info */}
-                      <div className="flex-1 flex flex-col justify-end z-10 p-2 md:p-2 pb-4 md:pb-6">
-                        <div className="text-white text-[18px] text-nowrap font-light mb-1 drop-shadow-lg">{founder.name}</div>
-                        <div className="text-sm text-gray-300 font-extralight mb-2 drop-shadow">{founder.title}</div>
-                      </div>
+{/* Info */}
+<div className="flex-1 flex flex-col justify-end z-10 p-2 md:p-2 pb-4 md:pb-6 pointer-events-none">
+  <div className="text-white text-[18px] text-nowrap font-light mb-1 drop-shadow-lg">{founder.name}</div>
+  <div className="text-sm text-gray-300 font-extralight mb-2 drop-shadow">{founder.title}</div>
+</div>
                     </div>
                     
                     {/* Açıklama */}

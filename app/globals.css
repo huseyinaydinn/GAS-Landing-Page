@@ -59,9 +59,4 @@ body {
   }
 }
 
-.swiper-wrapper {
-  pointer-events: auto;
-}
-.swiper-slide {
-  pointer-events: auto;
-}
+

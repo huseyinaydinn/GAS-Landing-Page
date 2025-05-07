@@ -41,15 +41,6 @@ export default function Registration() {
     address: ''
   });
 
-  const serviceOptions = [
-    'Website',
-    'CRM',
-    'AI Agent',
-    'Analytics',
-    'Inventory',
-    'Other'
-  ];
-
   const handleStepClick = (idx) => setActiveStep(idx);
 
   const handleInput = (e) => {
@@ -57,17 +48,15 @@ export default function Registration() {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleRadio = (e) => setForm((prev) => ({ ...prev, businessSize: e.target.value }));
+  const handleRadio = (e) =>
+    setForm((prev) => ({ ...prev, businessSize: e.target.value }));
 
   const handleService = (e) => {
     const { value, checked } = e.target;
     setForm((prev) => {
       let services = prev.services;
-      if (checked) {
-        services = [...services, value];
-      } else {
-        services = services.filter((s) => s !== value);
-      }
+      if (checked) services = [...services, value];
+      else services = services.filter((s) => s !== value);
       return { ...prev, services };
     });
   };
@@ -102,29 +91,52 @@ export default function Registration() {
         </h1>
 
         <div className="w-full max-w-xl bg-[#23252C] rounded-2xl shadow-xl px-8 py-10 flex flex-col items-center min-h-[600px] h-[600px] md:min-h-[580px] md:h-[580px] justify-center">
-          <form className="flex flex-col items-center w-full h-full relative">
-            <div className="w-full max-w-lg h-20 flex items-center justify-center flex-shrink-0 mx-auto mb-2">
+          <form className="flex flex-col items-start w-full h-[450px] min-h-[450px] relative">
+            {/* Stepper */}
+            <div className="w-full max-w-lg h-20 flex items-center justify-center flex-shrink-0 mx-auto mb-2 text-center">
               <div className="flex w-full items-center justify-center flex-nowrap gap-x-4">
-                {[0, 1, 2].map((idx) => (
+                {steps.map((step, idx) => (
                   <React.Fragment key={idx}>
+                    {/* Step Circle */}
                     <div className="flex flex-col items-center">
                       <div
-                        className={`w-8 h-8 flex items-center justify-center rounded-full border-2 text-sm font-semibold transition-all duration-300
-                          ${activeStep === idx ? 'bg-blue-500 border-blue-500 text-white shadow-lg' : 'bg-[#23252C] border-[#34374A] text-blue-200'} cursor-pointer`}
+                        className={`w-8 h-8 flex items-center justify-center rounded-full border-2 text-sm font-semibold transition-all duration-300 cursor-pointer
+                          ${activeStep >= idx
+                            ? 'bg-blue-500 border-blue-500 text-white shadow-lg'
+                            : 'bg-[#23252C] border-[#34374A] text-blue-200'
+                          }`}
                         onClick={() => handleStepClick(idx)}
                       >
                         {idx + 1}
                       </div>
-                      <span className={`mt-2 text-xs ${activeStep === idx ? 'text-blue-400 font-medium' : 'text-blue-100 font-light'}`}>
-                        {steps[idx].label}
+                      <span
+                        className={`mt-2 text-xs transition-colors duration-300 ${
+                          activeStep >= idx ? 'text-blue-400 font-medium' : 'text-blue-400 font-light'
+                        }`}
+                      >
+                        {step.label}
                       </span>
                     </div>
-                    {idx < 2 && <div className="flex-1 h-0.5 bg-[#34374A] mx-3 mt-4" style={{ minWidth: '48px' }} />}
+
+                    {/* Connector Line */}
+{idx < steps.length - 1 && (
+  <div
+    className={`
+      flex-1 h-0.5 mx-3 mt-4
+      bg-[#34374A]            /* inaktif renk */
+      transform origin-left
+      transition-transform duration-500
+      ${activeStep > idx ? 'bg-blue-500 scale-x-100' : 'scale-x-0'}
+    `}
+    style={{ minWidth: '48px' }}
+  />
+)}
                   </React.Fragment>
                 ))}
               </div>
             </div>
 
+            {/* Form Steps */}
             <div className="flex-1 w-full">
               {activeStep === 0 && (
                 <div className="flex flex-col justify-center h-full gap-5">

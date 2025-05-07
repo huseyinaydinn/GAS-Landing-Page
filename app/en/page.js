@@ -10,6 +10,7 @@ import Registration from "../../components/Registration/page";
 import Founders from "../../components/Founders/page";
 import DemoStartButtons from "../../components/DemoStartButtons/page";
 import Footer from "../../components/Footer/page";
+import Quotes from "../../components/Quotes/page";
 
 export default function LandingTR() {
   return (
@@ -20,6 +21,7 @@ export default function LandingTR() {
       <ChooseScenario />
       <ExperiencePlatform />
       <DataTools />
+      <Quotes />  
       <SpecificSolutions />
       <SuccessStories />
       <Registration />
