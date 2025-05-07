@@ -27,7 +27,7 @@ body {
 
 @layer utilities {
   .animate-navbar-slide-down {
-    animation: navbar-slide-down 0.4s cubic-bezier(0.4,0,0.2,1);
+    animation: navbar-slide-down 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -44,7 +44,7 @@ body {
 
 @layer utilities {
   .animate-navbar-slide-down {
-    animation: navbar-slide-down 0.4s cubic-bezier(0.4,0,0.2,1);
+    animation: navbar-slide-down 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -57,4 +57,11 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.swiper-wrapper {
+  pointer-events: auto;
+}
+.swiper-slide {
+  pointer-events: auto;
 }
