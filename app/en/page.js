@@ -9,6 +9,8 @@ import SuccessStories from "../../components/SuccessStories/page";
 import Registration from "../../components/Registration/page";
 import Founders from "../../components/Founders/page";
 import DemoStartButtons from "../../components/DemoStartButtons/page";
+import Footer from "../../components/Footer/page";
+
 export default function LandingTR() {
   return (
     <>
@@ -23,6 +25,7 @@ export default function LandingTR() {
       <Registration />
       <Founders />
       <DemoStartButtons />
+      <Footer />
     </>
   );
 }
